@@ -59,7 +59,13 @@ const query = gql`
 `;
 
 class Explorer extends Component {
+  state = {
+    activeRestaurantId: null,
+  };
+
   render() {
+    const { activeRestaurantId } = this.state;
+
     return (
       <Query query={query} variables={{ cityName: this.props.city }}>
         {({ loading, error, data }) => {
@@ -67,7 +73,11 @@ class Explorer extends Component {
           if (error) return <p>Error : {JSON.stringify(error)}</p>;
           const { allLocations: restaurants } = data;
           const city = data.allCities[0];
-          console.log(city.name);
+
+          const activeRestaurant = restaurants.find(
+            ({ id }) => id === activeRestaurantId,
+          );
+
           return (
             <Wrapper>
               <div className="container">
@@ -77,13 +87,17 @@ class Explorer extends Component {
                   yesIWantToUseGoogleMapApiInternals
                 >
                   {!isEmpty(restaurants) &&
-                    restaurants.map(restaurants => (
+                    restaurants.map(restaurant => (
                       <Marker
-                        key={restaurants.id}
-                        text={restaurants.name}
-                        lat={restaurants.latitude}
-                        lng={restaurants.longitude}
-                        name={restaurants.name}
+                        key={restaurant.id}
+                        text={restaurant.name}
+                        lat={restaurant.latitude}
+                        lng={restaurant.longitude}
+                        name={restaurant.name}
+                        active={restaurant.id === activeRestaurantId}
+                        onClick={() =>
+                          this.setState({ activeRestaurantId: restaurant.id })
+                        }
                       />
                     ))}
                 </GoogleMap>
@@ -92,6 +106,10 @@ class Explorer extends Component {
                     <RestaurantCard
                       key={restaurant.id}
                       restaurant={restaurant}
+                      active={restaurant.id === activeRestaurantId}
+                      onClick={() =>
+                        this.setState({ activeRestaurantId: restaurant.id })
+                      }
                     />
                   ))}
                 </div>
