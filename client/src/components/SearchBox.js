@@ -46,13 +46,7 @@ const Wrapper = styled.div`
 `;
 
 class SearchBox extends Component {
-  constructor(props) {
-    super(props);
-    this.clearSearchBox = this.clearSearchBox.bind(this);
-  }
-
   componentDidMount({ map, mapApi } = this.props) {
-    console.log(this.props);
     this.searchBox = new mapApi.places.SearchBox(this.searchInput);
     this.searchBox.addListener('places_changed', this.onPlacesChanged);
     this.searchBox.bindTo('bounds', map);
@@ -62,9 +56,10 @@ class SearchBox extends Component {
     mapApi.event.clearInstanceListeners(this.searchInput);
   }
 
-  onPlacesChanged = ({ map, addplace } = this.props) => {
+  onPlacesChanged = ({ map } = this.props) => {
     const selected = this.searchBox.getPlaces();
     const { 0: place } = selected;
+
     if (!place.geometry) return;
     if (place.geometry.viewport) {
       map.fitBounds(place.geometry.viewport);
@@ -73,13 +68,12 @@ class SearchBox extends Component {
       map.setZoom(17);
     }
 
-    addplace(selected);
     this.searchInput.blur();
   };
 
-  clearSearchBox() {
+  clearSearchBox = () => {
     this.searchInput.value = '';
-  }
+  };
 
   render() {
     return (
