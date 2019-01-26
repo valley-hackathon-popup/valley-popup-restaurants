@@ -1,28 +1,54 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import SearchBox from './SearchBoxTemp';
 import Logo from '../views/Logo';
 
 const Wrapper = styled.div`
-  .background {
-    height: 100vh;
-    width: 100vw;
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: grayscale(20%);
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: ${props => `url(${props.backgroundImage})`};
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: grayscale(20%);
 
   .logo-container {
     position: relative;
-    top: 50vh;
-    left: 15vh;
+    top: 30%;
+    left: calc(50% - 220px);
     z-index: 1;
   }
 
-  .search-container {
+  .linkWrapper {
     position: relative;
-    left: 8vh;
+    background-color: white;
+    border-radius: 15px;
+    width: 440px;
+    height: 75px;
+    font-size: 30px;
+    top: 40%;
+    left: calc(50% - 220px);
+    z-index: 1;
+    text-align: center;
+    opacity: 0.8;
+
+    a {
+      margin: 10px;
+      padding-top: 20px;
+      text-decoration: none;
+      color: red;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    a:visited {
+      text-decoration: none;
+    }
+    a:hover {
+      border-bottom: 1px red solid;
+    }
+    padding: 15px;
   }
 `;
 
@@ -39,7 +65,6 @@ class Results extends Component {
 
   componentDidMount() {
     // let last = images.length;
-
     setInterval(() => {
       this.setState(state => {
         console.log({ state });
@@ -47,13 +72,12 @@ class Results extends Component {
           currentImage: (state.currentImage + 1) % images.length,
         };
       });
-    }, 5000);
+    }, 10000);
   }
 
   render() {
-    console.log(this.state.currentImage);
     return (
-      <Wrapper>
+      <Wrapper backgroundImage={images[this.state.currentImage]}>
         <div className="logo-container">
           <Logo
             textColor="#FFF"
@@ -63,14 +87,10 @@ class Results extends Component {
             lineHeight="110px"
           />
         </div>
-        <div className="search-container">
-          <SearchBox />
-        </div>
-        <div
-          className="background"
-          style={{ backgroundImage: `url(${images[this.state.currentImage]})` }}
-        >
-          <Link to="/results">More to Component</Link>
+
+        <div className="linkWrapper">
+          <Link to="/results/Modesto">Modesto</Link>
+          <Link to="/results/Turlock">Turlock</Link>
         </div>
       </Wrapper>
     );

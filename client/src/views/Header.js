@@ -10,6 +10,7 @@ const StyledHeader = styled.header`
 
   .logoContainer {
     flex-grow: 3;
+    text-decoration: none;
   }
 
   .menu {
@@ -53,9 +54,9 @@ class Header extends Component {
 
           return (
             <StyledHeader>
-              <div className="logoContainer">
+              <Link className="logoContainer" to="/">
                 <Logo styles={{ float: 'left' }} />
-              </div>
+              </Link>
 
               <div className="menu">
                 {allCities.map(city => (
