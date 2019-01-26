@@ -22,6 +22,9 @@ const query = gql`
         name
         id
       }
+      city {
+        name
+      }
       description
       latitude
       longitude
@@ -65,6 +68,8 @@ class Explorer extends Component {
     places.push(place);
   };
 
+  onSelected = locationId => {};
+
   render() {
     // const { places, mapApiLoaded } = this.state; //Not using places, now using API data
     const { mapApiLoaded, mapInstance, mapApi } = this.state;
@@ -73,7 +78,7 @@ class Explorer extends Component {
       <Query query={query}>
         {({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
-          if (error) return <p>Error :</p>;
+          if (error) return <p>Error : {JSON.stringify(error)}</p>;
 
           const { allLocations: restaurants } = data;
 
