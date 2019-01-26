@@ -1,5 +1,4 @@
 {
-  "main": "server/app.js",
   "scripts": {
     "prettier:check": "prettier '{{client,server}/**/*.{js,json,yml},./*.{js,json,yml}}' --list-different",
     "prettier:write": "prettier '{{client,server}/**/*.{js,json,yml},./*.{js,json,yml}}' --write",
