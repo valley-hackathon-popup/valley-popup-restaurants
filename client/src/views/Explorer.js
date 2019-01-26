@@ -10,7 +10,7 @@ import RestaurantCard from '../components/RestaurantCard';
 
 // examples:
 import GoogleMap from '../components/GoogleMap';
-// import SearchBox from '../components/SearchBox';
+import SearchBox from '../components/SearchBox';
 
 class Searchbox extends Component {
   state = {
@@ -18,6 +18,7 @@ class Searchbox extends Component {
     mapInstance: null,
     mapApi: null,
     places,
+    currentSelectedLocation: null,
   };
 
   apiHasLoaded = (map, maps) => {
@@ -36,7 +37,9 @@ class Searchbox extends Component {
   };
 
   render() {
-    const { places, mapApiLoaded } = this.state;
+    // const { places, mapApiLoaded } = this.state; //Not using places, now using API data
+    const { mapApiLoaded, mapInstance, mapApi } = this.state;
+
     return (
       <Query
         query={gql`
@@ -75,14 +78,16 @@ class Searchbox extends Component {
           return (
             <>
               <GoogleMap
-                defaultZoom={10}
-                defaultCenter={[37.705588, -121.070358]}
+                defaultZoom={12}
+                defaultCenter={[37.65, -121.025358]}
                 yesIWantToUseGoogleMapApiInternals
                 onGoogleApiLoaded={({ map, maps }) =>
                   this.apiHasLoaded(map, maps)
                 }
               >
-                {!isEmpty(places) &&
+                {
+                  //These were the static locations from places.js
+                  /* {!isEmpty(places) &&  
                   places.map(place => (
                     <Marker
                       key={place.id}
@@ -90,9 +95,29 @@ class Searchbox extends Component {
                       lat={place.geometry.location.lat}
                       lng={place.geometry.location.lng}
                     />
+                  ))} */
+                }
+                {!isEmpty(restaurants) &&
+                  restaurants.map(restaurants => (
+                    <Marker
+                      key={restaurants.id}
+                      text={restaurants.name}
+                      lat={restaurants.latitude}
+                      lng={restaurants.longitude}
+                      name={restaurants.name}
+                    />
                   ))}
               </GoogleMap>
               <div>
+                {mapApiLoaded && (
+                  <SearchBox
+                    className="search"
+                    map={mapInstance}
+                    mapApi={mapApi}
+                    addplace={this.addPlace}
+                  />
+                )}
+
                 {mapApiLoaded &&
                   restaurants.map(restaurant => (
                     <RestaurantCard

@@ -15,27 +15,36 @@ h6 {
 }
 
 header {
-  height: 50px;
+  height: 70px;
   width: 100vw;
-  background-color: red;
+  border-bottom: 1px #cccccc solid;
 }
 
 header .logo {
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   background-color: green;
+  margin: 10px;
   float: left;
 }
 
 .container {
   display: grid;
   grid-template-areas: 'sidebar map';
-  grid-template-columns: 50vw 50vw;
-  height: calc(100vh - 50px);
+  grid-template-columns: 60vw 40vw;
+  height: calc(100vh - 70px);
   width: 100vw;
 }
 
-.container .sidebar {
+.title {
+  height: 70px;
+  line-height: 70px;
+  font-size: 30px;
+  color: #fe0000;
+  font-weight: bold;
+}
+
+/* .container .sidebar {
   grid-area: sidebar;
   background-color: orange;
 }
@@ -43,4 +52,13 @@ header .logo {
 .container .map {
   grid-area: map;
   background-color: orange;
+} */
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }

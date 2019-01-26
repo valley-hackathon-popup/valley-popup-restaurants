@@ -18,10 +18,17 @@ class App extends Component {
     return (
       <ApolloProvider client={client}>
         <header>
-          <div className="logo" />
-          <div className="search">
-            <input />
+          <div>
+            <img
+              className="logo"
+              src="https://cdn2.vectorstock.com/i/thumbs/50/11/chef-hat-and-spoon-fork-knife-sign-vector-13415011.jpg"
+              alt="logo"
+            />
+            <h3 className="title">Home Cooked</h3>
           </div>
+          {/* <div className="search">
+            <input />
+          </div> */}
           <div className="menu" />
         </header>
         <div className="container">
