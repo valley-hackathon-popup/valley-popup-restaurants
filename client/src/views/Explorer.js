@@ -27,6 +27,7 @@ const query = gql`
       name
       category {
         name
+        id
       }
       city {
         name
