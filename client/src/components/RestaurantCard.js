@@ -62,13 +62,17 @@ export default function RestaurantCard({ restaurant }) {
     <Wrapper className="card">
       <img
         className="image"
-        src={restaurant.photos.url}
+        src={
+          restaurant.photos[0]
+            ? restaurant.photos[0].url
+            : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1280px-No_image_3x4.svg.png'
+        }
         alt={restaurant.name}
       />
       <div className="info-container">
         <div className="name">{restaurant.name}</div>
         <div>
-          <p className="category">{restaurant.category}</p>
+          <p className="category">{restaurant.category.name}</p>
         </div>
         <div className="rating-container">
           <div className="rating red">{restaurant.rating}</div>
