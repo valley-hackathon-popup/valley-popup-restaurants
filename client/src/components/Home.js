@@ -20,6 +20,36 @@ const Wrapper = styled.div`
     left: calc(50% - 220px);
     z-index: 1;
   }
+
+  .linkWrapper {
+    position: relative;
+    background-color: white;
+    border-radius: 15px;
+    width: 440px;
+    height: 75px;
+    font-size: 30px;
+    top: 40%;
+    left: calc(50% - 220px);
+    z-index: 1;
+    text-align: center;
+    opacity: 0.8;
+
+    a {
+      margin: 10px;
+      padding-top: 20px;
+      text-decoration: none;
+      color: red;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    a:visited {
+      text-decoration: none;
+    }
+    a:hover {
+      border-bottom: 1px red solid;
+    }
+    padding: 15px;
+  }
 `;
 
 const images = [
