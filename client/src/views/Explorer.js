@@ -18,7 +18,10 @@ const query = gql`
       id
       createdAt
       name
-      category
+      category {
+        name
+        id
+      }
       description
       latitude
       longitude

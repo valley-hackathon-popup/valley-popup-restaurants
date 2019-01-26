@@ -68,7 +68,7 @@ export default function RestaurantCard({ restaurant }) {
       <div className="info-container">
         <div className="name">{restaurant.name}</div>
         <div>
-          <p className="category">{restaurant.category}</p>
+          <p className="category">{restaurant.category.name}</p>
         </div>
         <div className="rating-container">
           <div className="rating red">{restaurant.rating}</div>

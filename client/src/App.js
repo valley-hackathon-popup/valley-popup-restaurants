@@ -8,12 +8,6 @@ import Results from './components/Results';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
-import dotenv from 'dotenv';
-console.log({ dotenv });
-dotenv.config();
-
-console.log('app', { process });
-
 const client = new ApolloClient({
   uri: 'https://api.graph.cool/simple/v1/cjrd2efqtc9wi01794swtqqgw',
 });
