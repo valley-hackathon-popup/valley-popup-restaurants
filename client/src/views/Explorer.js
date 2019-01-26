@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import isEmpty from 'lodash.isempty';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import places from './places';
 
 // components:
 import Marker from '../components/Marker';
@@ -15,7 +16,7 @@ class Searchbox extends Component {
     mapApiLoaded: false,
     mapInstance: null,
     mapApi: null,
-    places: [],
+    places,
   };
 
   apiHasLoaded = (map, maps) => {
@@ -26,9 +27,9 @@ class Searchbox extends Component {
     });
   };
 
-  addPlace = place => {
-    this.setState({ places: place });
-  };
+  // addPlace = place => {
+  //   this.setState({ places: place });
+  // };
 
   render() {
     const { places, mapApiLoaded, mapInstance, mapApi } = this.state;
@@ -80,8 +81,8 @@ class Searchbox extends Component {
                     <Marker
                       key={place.id}
                       text={place.name}
-                      lat={place.geometry.location.lat()}
-                      lng={place.geometry.location.lng()}
+                      lat={place.geometry.location.lat}
+                      lng={place.geometry.location.lng}
                     />
                   ))}
               </GoogleMap>
