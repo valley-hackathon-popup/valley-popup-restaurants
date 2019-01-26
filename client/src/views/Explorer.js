@@ -35,6 +35,7 @@ const query = gql`
       description
       latitude
       longitude
+      address
       rating
       reviews {
         body
