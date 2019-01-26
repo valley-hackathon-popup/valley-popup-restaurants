@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import isEmpty from 'lodash.isempty';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import places from './places';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 // components:
 import Marker from '../components/Marker';
@@ -12,11 +11,11 @@ import RestaurantCard from '../components/RestaurantCard';
 // examples:
 import GoogleMap from '../components/GoogleMap';
 
-const Wrapper = styled.div`
-  .sidebar {
-    overflow-y: scroll;
-  }
-`;
+// const Wrapper = styled.div`
+//   .sidebar {
+//     overflow-y: scroll;
+//   }
+// `;
 
 const query = gql`
   query filteredLocations($cityName: String, $category: String) {
