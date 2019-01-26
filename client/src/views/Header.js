@@ -7,6 +7,30 @@ import { Link } from 'react-router-dom';
 
 const StyledHeader = styled.header`
   display: flex;
+
+  .logoContainer {
+    flex-grow: 3;
+  }
+
+  .menu {
+    margin-right: 30px;
+    margin-top: 10px;
+    a {
+      margin: 10px;
+      padding-top: 20px;
+      text-decoration: none;
+      color: red;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    a:visited {
+      text-decoration: none;
+    }
+    a:hover {
+      border-bottom: 1px red solid;
+    }
+    padding: 15px;
+  }
 `;
 
 const query = gql`
@@ -29,7 +53,9 @@ class Header extends Component {
 
           return (
             <StyledHeader>
-              <Logo styles={{ float: 'left' }} />
+              <div className="logoContainer">
+                <Logo styles={{ float: 'left' }} />
+              </div>
 
               <div className="menu">
                 {allCities.map(city => (
