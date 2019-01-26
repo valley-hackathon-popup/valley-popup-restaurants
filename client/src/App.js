@@ -20,6 +20,7 @@ class App extends Component {
           <>
             <Route exact path="/" component={Home} />
             <Route exact path="/results" component={Results} />
+            <Route exact path="/results/:city" component={Results} />
           </>
         </Router>
       </ApolloProvider>
