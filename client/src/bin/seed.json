@@ -1,0 +1,420 @@
+[
+  {
+    "name": "Mama Guadalupe's Tamales",
+    "address": "2005 Vernon Ave Modesto, CA 95351",
+    "cityId": "cjrds65y3ad8w01162dj24r02",
+    "categoryId": "cjrdsdbnhad9y011623ljoac3",
+    "description": "I serve the best tamales in all of Modesto. Just ask my grandkids!",
+    "latitude": "37.613037",
+    "longitude": "-121.028208",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T16:00:00.000Z",
+        "closeTime": "2019-01-27T00:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1548078835-cb7d27702c1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Cooking tamales"
+      }
+    ],
+    "rating": 3.4
+  },
+  {
+    "name": "Best Indian Food",
+    "address": "2113 Donald Street Modesto, CA 95351",
+    "cityId": "cjrds65y3ad8w01162dj24r02",
+    "categoryId": "cjrdsdfsvada20116jyzqotll",
+    "description": "If you're looking for tasty, spicy Indian food, look no further. All meals come with free roti!",
+    "latitude": "37.611894",
+    "longitude": "-121.026433",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-27T00:00:00.000Z",
+        "closeTime": "2019-01-27T04:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1542367592-8849eb950fd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Indian plate"
+      }
+    ],
+    "rating": 4.9
+  },
+  {
+    "name": "Taqueria Los Hermanos",
+    "address": "208 Melrose Street Modesto, CA 95354",
+    "cityId": "cjrds65y3ad8w01162dj24r02",
+    "categoryId": "cjrdsdbnhad9y011623ljoac3",
+    "description": "Taqueria Los Hermanos is a brother-owned Mexican restaurant that serves delicious authentic Mexican food at affordable prices.",
+    "latitude": "37.647681",
+    "longitude": "-120.986388",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T23:00:00.000Z",
+        "closeTime": "2019-01-27T05:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1512838243191-e81e8f66f1fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Four tacos"
+      }
+    ],
+    "rating": 4.4
+  },
+  {
+    "name": "Restaurant de Jalisco",
+    "address": "2801 Vestrella Dr Modesto, CA 95356",
+    "cityId": "cjrds65y3ad8w01162dj24r02",
+    "categoryId": "cjrdsdbnhad9y011623ljoac3",
+    "description": "We specialize in tacos and burritos, and we guarantee we have the lowest prices in Modesto!",
+    "latitude": "37.699242",
+    "longitude": "-121.045032",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T19:00:00.000Z",
+        "closeTime": "2019-01-27T04:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1464219222984-216ebffaaf85?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60",
+        "caption": "Nacho platter"
+      }
+    ],
+    "rating": 4.2
+  },
+  {
+    "name": "The Grape Leaf",
+    "address": "3624 Woodglen Dr Modesto, CA 95356",
+    "cityId": "cjrds65y3ad8w01162dj24r02",
+    "categoryId": "cjrdsd7kaad9u0116pz7br3cr",
+    "description": "We are all vegetarian! Let the wonderful flavors of the Mediterranean wow your palate.",
+    "latitude": "37.699019",
+    "longitude": "-121.063672",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-27T00:00:00.000Z",
+        "closeTime": "2019-01-27T04:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1548070779-c9030e21d1c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Falafel balls platter"
+      }
+    ],
+    "rating": 3.9
+  },
+  {
+    "name": "Sifu Lan's Takeout",
+    "address": "1812 N Dakota Ave, Modesto, CA 95358",
+    "cityId": "cjrds65y3ad8w01162dj24r02",
+    "categoryId": "cjrdsdmtvada601160em1hj1f",
+    "description": "Chinese comfort food made by your favorite Wing Chun master Sifu Lan!",
+    "latitude": "37.662252",
+    "longitude": "-121.066759",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-27T00:00:00.000Z",
+        "closeTime": "2019-01-27T04:30:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1534971525317-ed179568e7f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Eggplant and egg rolls"
+      }
+    ],
+    "rating": 4.1
+  },
+  {
+    "name": "Meal on a Bun",
+    "address": "2401 Woodland Ave Modesto, CA 95358",
+    "cityId": "cjrds65y3ad8w01162dj24r02",
+    "categoryId": "cjrdsdqifadaa0116j6r64jnx",
+    "description": "We offer burgers of all kinds, from bison to beef!",
+    "latitude": "37.653339",
+    "longitude": "-121.042638",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T19:00:00.000Z",
+        "closeTime": "2019-01-26T23:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1428660386617-8d277e7deaf2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Sliders"
+      }
+    ],
+    "rating": 3.8
+  },
+  {
+    "name": "Grandma Desmond's Bakery",
+    "address": "1409 Rosemead Ct Modesto, CA 95350",
+    "cityId": "cjrds65y3ad8w01162dj24r02",
+    "categoryId": "cjrdsdqifadaa0116j6r64jnx",
+    "description": "I sell a selection of homebaked goods, such as cookies, bread, and cakes. Please stop by!",
+    "latitude": "37.685536",
+    "longitude": "-121.014259",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T16:00:00.000Z",
+        "closeTime": "2019-01-27T00:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1507638940746-7b17d6b55b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Sliced whole wheat bread"
+      }
+    ],
+    "rating": 4.6
+  },
+  {
+    "name": "Pasta Pelloza!",
+    "address": "422 Columbia Ave Turlock, CA 95380",
+    "cityId": "cjrds6nzpad900116cte3ktds",
+    "categoryId": "cjrdseo4aadaj0116pe4ziw1s",
+    "description": "We specialize in red-sauce pasta from the southern region of Italy. You'll love it!",
+    "latitude": "37.491600",
+    "longitude": "-120.853229",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-27T00:00:00.000Z",
+        "closeTime": "2019-01-26T23:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1516100882582-96c3a05fe590?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Thin pasta with red sauce and tomatoes"
+      }
+    ],
+    "rating": 5.0
+  },
+  {
+    "name": "Curry Stop",
+    "address": "2480 Geer Rd Turlock, CA 95382",
+    "cityId": "cjrds6nzpad900116cte3ktds",
+    "categoryId": "cjrdseewkadae01164ecndyhb",
+    "description": "If you haven't tried our Thai curry, you're missing out on something special. After moving here a few years ago, I've found joy introducing others to Thai food.",
+    "latitude": "37.513639",
+    "longitude": "-120.845383",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T19:00:00.000Z",
+        "closeTime": "2019-01-26T23:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1518710339019-eee82fe8d97f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Yellow curry"
+      }
+    ],
+    "rating": 4.4
+  },
+  {
+    "name": "Cupcake Pit Stop",
+    "address": "1360 N Johnson Rd Turlock, CA 95380",
+    "cityId": "cjrds6nzpad900116cte3ktds",
+    "categoryId": "cjrdsdqifadaa0116j6r64jnx",
+    "description": "We bake different cupcakes every day. For every purchase, we donate a percentage of our profits to charity!",
+    "latitude": "37.503289",
+    "longitude": "-120.826501",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T19:00:00.000Z",
+        "closeTime": "2019-01-26T23:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1521309918586-feb7aa79a61b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Flowery cupcakes"
+      }
+    ],
+    "rating": 3.2
+  },
+  {
+    "name": "Pizza Mia",
+    "address": "952 Hartwick Ave Turlock, CA 95382",
+    "cityId": "cjrds6nzpad900116cte3ktds",
+    "categoryId": "cjrdseo4aadaj0116pe4ziw1s",
+    "description": "American pizza cannot compare to the truely delicious Neopolitino Italiano pizza. Come try it!",
+    "latitude": "37.525756",
+    "longitude": "-120.837744",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T19:00:00.000Z",
+        "closeTime": "2019-01-26T23:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Cheese and red pepper pizza"
+      }
+    ],
+    "rating": 4.7
+  },
+  {
+    "name": "Chinese Fried Chicken",
+    "address": "498 Memory Ln Turlock, CA 95382",
+    "cityId": "cjrds6nzpad900116cte3ktds",
+    "categoryId": "cjrdsdmtvada601160em1hj1f",
+    "description": "Come one, come all! Try our Chinese fried chicken. It's one of a kind.",
+    "latitude": "37.535030",
+    "longitude": "-120.852550",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T19:00:00.000Z",
+        "closeTime": "2019-01-26T23:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Fried chicken"
+      }
+    ],
+    "rating": 4.5
+  },
+  {
+    "name": "Taqueria del Hehe",
+    "address": "1621 Lander Ave Turlock, CA 95380",
+    "cityId": "cjrds6nzpad900116cte3ktds",
+    "categoryId": "cjrdsdbnhad9y011623ljoac3",
+    "description": "We specialize in tacos with less common ingredients. Our ojo tacos are to die for!",
+    "latitude": "37.480220",
+    "longitude": "-120.850640",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T19:00:00.000Z",
+        "closeTime": "2019-01-26T23:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1511690078903-71dc5a49f5e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Avocado tacos platter"
+      }
+    ],
+    "rating": 3.7
+  },
+  {
+    "name": "Asian Persuasion",
+    "address": "200 Wayside Dr Turlock, CA 95380",
+    "cityId": "cjrds6nzpad900116cte3ktds",
+    "categoryId": "cjrdsfcp1adb201161meizwu4",
+    "description": "We specialize in simple rice dishes that will warm your heart.",
+    "latitude": "37.504089",
+    "longitude": "-120.845963",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T19:00:00.000Z",
+        "closeTime": "2019-01-26T23:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Fried rice"
+      }
+    ],
+    "rating": 3.2
+  },
+  {
+    "name": "Fat Al's Hot Dogs",
+    "address": "1662 Smith Dr Turlock, CA 95382",
+    "cityId": "cjrds6nzpad900116cte3ktds",
+    "categoryId": "cjrdsdqifadaa0116j6r64jnx",
+    "description": "Weinerschnitzel doesn't have anything on Fat Al's. I guarantee it!",
+    "latitude": "37.509060",
+    "longitude": "-120.823389",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T19:00:00.000Z",
+        "closeTime": "2019-01-26T23:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1498094142928-340247edf22f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Hot dog sign outside"
+      }
+    ],
+    "rating": 3.8
+  },
+  {
+    "name": "TacoTaco",
+    "address": "3801 Crowell Rd Turlock, CA 95382",
+    "cityId": "cjrds6nzpad900116cte3ktds",
+    "categoryId": "cjrdsdbnhad9y011623ljoac3",
+    "description": "We offer tacos and tacos! We're trendy.",
+    "latitude": "37.526862",
+    "longitude": "-120.862442",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T19:00:00.000Z",
+        "closeTime": "2019-01-26T23:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1531099320853-319786e69afa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Tres tacos"
+      }
+    ],
+    "rating": 4.1
+  },
+  {
+    "name": "Delta Gamma Phi Bake Sale",
+    "address": "1 University Circle, Turlock, CA 95382",
+    "cityId": "cjrds6nzpad900116cte3ktds",
+    "categoryId": "cjrdsdqifadaa0116j6r64jnx",
+    "description": "Please come support your favorite basic white girls in our charity drive to Make America Skate Again.",
+    "latitude": "37.528938",
+    "longitude": "-120.854288",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T19:00:00.000Z",
+        "closeTime": "2019-01-26T23:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1485745655111-3272a37e76a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60",
+        "caption": "Lots of chocolate chip cookies"
+      }
+    ],
+    "rating": 5.0
+  },
+  {
+    "name": "Steak Stop",
+    "address": "455 Hillsdale Dr, Turlock, CA 95382",
+    "cityId": "cjrds6nzpad900116cte3ktds",
+    "categoryId": "cjrdsdqifadaa0116j6r64jnx",
+    "description": "We only serve rare steaks. Deal with it.",
+    "latitude": "37.525467",
+    "longitude": "-120.844332",
+    "openTimespans": [
+      {
+        "openTime": "2019-01-26T19:00:00.000Z",
+        "closeTime": "2019-01-26T23:00:00.000Z"
+      }
+    ],
+    "photos": [
+      {
+        "url": "https://images.unsplash.com/photo-1532597144951-3237ed98ab3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60",
+        "caption": "Steak on wooden tra"
+      }
+    ],
+    "rating": 4.4
+  }
+]
