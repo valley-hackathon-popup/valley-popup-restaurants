@@ -6,11 +6,12 @@ const Wrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 18px;
-  height: 18px;
+  width: ${props => (props.active ? '30px' : '18px')};
+  height: ${props => (props.active ? '30px' : '18px')};
   background-image: url('/logo.png');
   background-size: cover;
-  border: 1px solid red;
+  border: ${props => (props.active ? '5px' : '1px')} solid
+    ${props => (props.active ? '#FEFB19' : 'red')};
   border-radius: 100%;
   user-select: none;
   transform: translate(-50%, -50%);
@@ -24,6 +25,7 @@ const Marker = props => (
   <Wrapper
     alt={props.name}
     {...(props.onClick ? { onClick: props.onClick } : {})}
+    active={props.active}
   />
 );
 

@@ -5,12 +5,13 @@ import { FaStar as Star } from 'react-icons/fa';
 const Wrapper = styled.div`
   height: 120px;
   display: flex;
-  border: 1px #cccccc solid;
+  border: 5px ${props => (props.active ? '#FEFB19' : '#cccccc')} solid;
+  ${props => props.active && 'background-color: #ffffec;'}
   border-radius: 5px;
   margin: 15px;
 
   &:hover {
-    border: 1px red solid;
+    border: 5px red solid;
   }
 
   .image {
@@ -57,9 +58,9 @@ const Wrapper = styled.div`
   }
 `;
 
-export default function RestaurantCard({ restaurant }) {
+export default function RestaurantCard({ restaurant, active, onClick }) {
   return (
-    <Wrapper className="card">
+    <Wrapper className="card" active={active} onClick={onClick}>
       <img
         className="image"
         src={

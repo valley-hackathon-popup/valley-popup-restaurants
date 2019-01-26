@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import isEmpty from 'lodash.isempty';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
 // components:
 import Marker from '../components/Marker';
@@ -11,11 +11,11 @@ import RestaurantCard from '../components/RestaurantCard';
 // examples:
 import GoogleMap from '../components/GoogleMap';
 
-// const Wrapper = styled.div`
-//   .sidebar {
-//     overflow-y: scroll;
-//   }
-// `;
+const Wrapper = styled.div`
+  .sidebar {
+    overflow-y: scroll;
+  }
+`;
 
 const query = gql`
   query filteredLocations($cityName: String, $category: String) {
@@ -59,7 +59,13 @@ const query = gql`
 `;
 
 class Explorer extends Component {
+  state = {
+    activeRestaurantId: null,
+  };
+
   render() {
+    const { activeRestaurantId } = this.state;
+
     return (
       <Query query={query} variables={{ cityName: this.props.city }}>
         {({ loading, error, data }) => {
@@ -67,29 +73,48 @@ class Explorer extends Component {
           if (error) return <p>Error : {JSON.stringify(error)}</p>;
           const { allLocations: restaurants } = data;
           const city = data.allCities[0];
-          console.log(city.name);
+
+          const activeRestaurant = restaurants.find(
+            ({ id }) => id === activeRestaurantId,
+          );
+
           return (
-            <div className="container">
-              <GoogleMap
-                defaultZoom={12}
-                center={[Number(city.latitude), Number(city.longitude)]}
-                yesIWantToUseGoogleMapApiInternals
-              >
-                {!isEmpty(restaurants) &&
-                  restaurants.map(restaurants => (
-                    <Marker
-                      key={restaurants.id}
-                      text={restaurants.name}
-                      lat={restaurants.latitude}
-                      lng={restaurants.longitude}
-                      name={restaurants.name}
+            <Wrapper>
+              <div className="container">
+                <GoogleMap
+                  defaultZoom={12}
+                  center={[Number(city.latitude), Number(city.longitude)]}
+                  yesIWantToUseGoogleMapApiInternals
+                >
+                  {!isEmpty(restaurants) &&
+                    restaurants.map(restaurant => (
+                      <Marker
+                        key={restaurant.id}
+                        text={restaurant.name}
+                        lat={restaurant.latitude}
+                        lng={restaurant.longitude}
+                        name={restaurant.name}
+                        active={restaurant.id === activeRestaurantId}
+                        onClick={() =>
+                          this.setState({ activeRestaurantId: restaurant.id })
+                        }
+                      />
+                    ))}
+                </GoogleMap>
+                <div className="sidebar">
+                  {restaurants.map(restaurant => (
+                    <RestaurantCard
+                      key={restaurant.id}
+                      restaurant={restaurant}
+                      active={restaurant.id === activeRestaurantId}
+                      onClick={() =>
+                        this.setState({ activeRestaurantId: restaurant.id })
+                      }
                     />
                   ))}
-              </GoogleMap>
-              {restaurants.map(restaurant => (
-                <RestaurantCard key={restaurant.id} restaurant={restaurant} />
-              ))}
-            </div>
+                </div>
+              </div>
+            </Wrapper>
           );
         }}
       </Query>
