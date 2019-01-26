@@ -43,6 +43,11 @@ const query = gql`
         openTime
       }
     }
+    allCities(filter: { name: $cityName }) {
+      name
+      latitude
+      longitude
+    }
   }
 `;
 
@@ -54,12 +59,13 @@ class Explorer extends Component {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error : {JSON.stringify(error)}</p>;
           const { allLocations: restaurants } = data;
-
+          const city = data.allCities[0];
+          console.log(city.name);
           return (
             <div className="container">
               <GoogleMap
                 defaultZoom={12}
-                defaultCenter={[37.65, -121.025358]}
+                center={[Number(city.latitude), Number(city.longitude)]}
                 yesIWantToUseGoogleMapApiInternals
               >
                 {!isEmpty(restaurants) &&
