@@ -1,27 +1,22 @@
-import React, { Component } from 'react';
 import './App.css';
-// import Map from './map';
-import Sidebar from './sidebar';
-import { getLocations } from './data';
-import SearchBox from './views/Searchbox';
+
+import React, { Component } from 'react';
+import Explorer from './views/Explorer';
 import dotenv from 'dotenv';
+// import Search from './search';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
+
 dotenv.config();
 
+const client = new ApolloClient({
+  uri: 'https://api.graph.cool/simple/v1/cjrd2efqtc9wi01794swtqqgw',
+});
+
 class App extends Component {
-  state = {
-    locations: [],
-  };
-
-  componentWillMount() {
-    getLocations().then(data => {
-      this.setState({ locations: data });
-    });
-  }
-
   render() {
-    let { locations } = this.state;
     return (
-      <>
+      <ApolloProvider client={client}>
         <header>
           <div className="logo" />
           <div className="search">
@@ -30,13 +25,9 @@ class App extends Component {
           <div className="menu" />
         </header>
         <div className="container">
-          <Sidebar data={locations} />
-          {/* <div className="map">
-            <Map data={locations} />
-          </div> */}
-          <SearchBox />
+          <Explorer />
         </div>
-      </>
+      </ApolloProvider>
     );
   }
 }
