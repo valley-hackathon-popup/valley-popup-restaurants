@@ -6,10 +6,11 @@ import places from './places';
 
 // components:
 import Marker from '../components/Marker';
+import RestaurantCard from '../components/RestaurantCard';
 
 // examples:
 import GoogleMap from '../components/GoogleMap';
-import SearchBox from '../components/SearchBox';
+// import SearchBox from '../components/SearchBox';
 
 class Searchbox extends Component {
   state = {
@@ -27,12 +28,15 @@ class Searchbox extends Component {
     });
   };
 
-  // addPlace = place => {
-  //   this.setState({ places: place });
-  // };
+  addPlace = place => {
+    const places = [...this.state.places];
+    places.push(place);
+    // this.setState({ places });
+    console.log(place);
+  };
 
   render() {
-    const { places, mapApiLoaded, mapInstance, mapApi } = this.state;
+    const { places, mapApiLoaded } = this.state;
     return (
       <Query
         query={gql`
@@ -41,6 +45,7 @@ class Searchbox extends Component {
               id
               createdAt
               name
+              category
               description
               latitude
               longitude
@@ -66,6 +71,7 @@ class Searchbox extends Component {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error :</p>;
 
+          const { allLocations: restaurants } = data;
           return (
             <>
               <GoogleMap
@@ -86,13 +92,15 @@ class Searchbox extends Component {
                     />
                   ))}
               </GoogleMap>
-              {mapApiLoaded && (
-                <SearchBox
-                  map={mapInstance}
-                  mapApi={mapApi}
-                  addplace={this.addPlace}
-                />
-              )}
+              <div>
+                {mapApiLoaded &&
+                  restaurants.map(restaurant => (
+                    <RestaurantCard
+                      key={restaurant.id}
+                      restaurant={restaurant}
+                    />
+                  ))}
+              </div>
             </>
           );
         }}
