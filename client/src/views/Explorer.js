@@ -11,37 +11,36 @@ import RestaurantCard from '../components/RestaurantCard';
 import GoogleMap from '../components/GoogleMap';
 
 const query = gql`
-  query locationsInCity($cityName: String) {
-    allCities(filter: { name: $cityName }) {
+  query filteredLocations($cityName: String, $category: String) {
+    allLocations(
+      filter: { city: { name: $cityName }, category: { name: $category } }
+    ) {
+      id
+      createdAt
       name
-      locations {
-        id
-        createdAt
+      category {
         name
-        category {
-          name
-          id
-        }
-        city {
-          name
-        }
-        description
-        latitude
-        longitude
+        id
+      }
+      city {
+        name
+      }
+      description
+      latitude
+      longitude
+      rating
+      reviews {
+        body
         rating
-        reviews {
-          body
-          rating
-          username
-        }
-        photos {
-          url
-          caption
-        }
-        openTimespans {
-          closeTime
-          openTime
-        }
+        username
+      }
+      photos {
+        url
+        caption
+      }
+      openTimespans {
+        closeTime
+        openTime
       }
     }
   }
@@ -52,7 +51,6 @@ class Explorer extends Component {
     return (
       <Query query={query} variables={{ cityName: this.props.city }}>
         {({ loading, error, data }) => {
-          console.log({ data });
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error : {JSON.stringify(error)}</p>;
           const { allLocations: restaurants } = data;
