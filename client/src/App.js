@@ -1,13 +1,18 @@
 import './App.css';
 
 import React, { Component } from 'react';
-import Explorer from './views/Explorer';
-import dotenv from 'dotenv';
-// import Search from './search';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Results from './components/Results';
+
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
+import dotenv from 'dotenv';
+console.log({ dotenv });
 dotenv.config();
+
+console.log('app', { process });
 
 const client = new ApolloClient({
   uri: 'https://api.graph.cool/simple/v1/cjrd2efqtc9wi01794swtqqgw',
@@ -17,23 +22,12 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <header>
-          <div>
-            <img
-              className="logo"
-              src="https://cdn2.vectorstock.com/i/thumbs/50/11/chef-hat-and-spoon-fork-knife-sign-vector-13415011.jpg"
-              alt="logo"
-            />
-            <h3 className="title">Home Cooked</h3>
-          </div>
-          {/* <div className="search">
-            <input />
-          </div> */}
-          <div className="menu" />
-        </header>
-        <div className="container">
-          <Explorer />
-        </div>
+        <Router>
+          <>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/results" component={Results} />
+          </>
+        </Router>
       </ApolloProvider>
     );
   }

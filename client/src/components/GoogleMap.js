@@ -8,11 +8,13 @@ const Wrapper = styled.main`
   height: 100%;
 `;
 
+const REACT_APP_MAP_KEY = 'AIzaSyCtIwqEnsFLIwz2vtW9HArwxatLnK0z1fo';
+
 const GoogleMap = ({ children, ...props }) => (
   <Wrapper>
     <GoogleMapReact
       bootstrapURLKeys={{
-        key: process.env.REACT_APP_MAP_KEY,
+        key: REACT_APP_MAP_KEY,
         libraries: ['places', 'geometry'],
       }}
       {...props}

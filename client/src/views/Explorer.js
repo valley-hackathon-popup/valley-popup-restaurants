@@ -12,7 +12,35 @@ import RestaurantCard from '../components/RestaurantCard';
 import GoogleMap from '../components/GoogleMap';
 import SearchBox from '../components/SearchBox';
 
-class Searchbox extends Component {
+const query = gql`
+  {
+    allLocations(first: 10) {
+      id
+      createdAt
+      name
+      category
+      description
+      latitude
+      longitude
+      rating
+      reviews {
+        body
+        rating
+        username
+      }
+      photos {
+        url
+        caption
+      }
+      openTimespans {
+        closeTime
+        openTime
+      }
+    }
+  }
+`;
+
+class Explorer extends Component {
   state = {
     mapApiLoaded: false,
     mapInstance: null,
@@ -32,8 +60,6 @@ class Searchbox extends Component {
   addPlace = place => {
     const places = [...this.state.places];
     places.push(place);
-    // this.setState({ places });
-    console.log(place);
   };
 
   render() {
@@ -41,42 +67,15 @@ class Searchbox extends Component {
     const { mapApiLoaded, mapInstance, mapApi } = this.state;
 
     return (
-      <Query
-        query={gql`
-          {
-            allLocations(first: 10) {
-              id
-              createdAt
-              name
-              category
-              description
-              latitude
-              longitude
-              rating
-              reviews {
-                body
-                rating
-                username
-              }
-              photos {
-                url
-                caption
-              }
-              openTimespans {
-                closeTime
-                openTime
-              }
-            }
-          }
-        `}
-      >
+      <Query query={query}>
         {({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error :</p>;
 
           const { allLocations: restaurants } = data;
+
           return (
-            <>
+            <div className="container">
               <GoogleMap
                 defaultZoom={12}
                 defaultCenter={[37.65, -121.025358]}
@@ -85,18 +84,6 @@ class Searchbox extends Component {
                   this.apiHasLoaded(map, maps)
                 }
               >
-                {
-                  //These were the static locations from places.js
-                  /* {!isEmpty(places) &&  
-                  places.map(place => (
-                    <Marker
-                      key={place.id}
-                      text={place.name}
-                      lat={place.geometry.location.lat}
-                      lng={place.geometry.location.lng}
-                    />
-                  ))} */
-                }
                 {!isEmpty(restaurants) &&
                   restaurants.map(restaurants => (
                     <Marker
@@ -118,15 +105,11 @@ class Searchbox extends Component {
                   />
                 )}
 
-                {mapApiLoaded &&
-                  restaurants.map(restaurant => (
-                    <RestaurantCard
-                      key={restaurant.id}
-                      restaurant={restaurant}
-                    />
-                  ))}
+                {restaurants.map(restaurant => (
+                  <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+                ))}
               </div>
-            </>
+            </div>
           );
         }}
       </Query>
@@ -134,4 +117,4 @@ class Searchbox extends Component {
   }
 }
 
-export default Searchbox;
+export default Explorer;

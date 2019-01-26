@@ -58,8 +58,6 @@ const Wrapper = styled.div`
 `;
 
 export default function RestaurantCard({ restaurant }) {
-  // const { name, category, rating} = restaurant;
-  console.log('Restaurant: ', restaurant);
   return (
     <Wrapper className="card">
       <img

@@ -52,6 +52,7 @@ class SearchBox extends Component {
   }
 
   componentDidMount({ map, mapApi } = this.props) {
+    console.log(this.props);
     this.searchBox = new mapApi.places.SearchBox(this.searchInput);
     this.searchBox.addListener('places_changed', this.onPlacesChanged);
     this.searchBox.bindTo('bounds', map);
