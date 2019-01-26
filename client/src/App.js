@@ -3,6 +3,7 @@ import './App.css';
 import Map from './map';
 import Sidebar from './sidebar';
 import { getLocations } from './data';
+import Search from './search';
 class App extends Component {
   state = {
     locations: [],
@@ -31,6 +32,7 @@ class App extends Component {
           <div className="map">
             <Map data={locations} />
           </div>
+          <Search />
         </div>
       </>
     );

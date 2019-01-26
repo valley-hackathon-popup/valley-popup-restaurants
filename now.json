@@ -1,5 +1,0 @@
-{
-  "name": "valley-popup",
-  "builds": [{ "src": "server/app.js", "use": "@now/node-server" }],
-  "routes": [{ "src": "/(.*)", "dest": "server/app.js" }]
-}
