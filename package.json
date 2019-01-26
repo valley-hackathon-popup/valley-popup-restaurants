@@ -1,7 +1,21 @@
 {
-  "private": true,
-  "workspaces": [ "server", "client" ],
   "scripts": {
-    "test": "echo no tests hehe"
+    "prettier:check": "prettier '{{client,server}/**/*.{js,json,yml},./*.{js,json,yml}}' --list-different",
+    "prettier:write": "prettier '{{client,server}/**/*.{js,json,yml},./*.{js,json,yml}}' --write"
+  },
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "devDependencies": {
+    "husky": "^1.3.1",
+    "prettier": "^1.16.1",
+    "pretty-quick": "^1.10.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
