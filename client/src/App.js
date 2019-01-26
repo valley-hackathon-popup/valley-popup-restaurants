@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Map from './map';
+// import Map from './map';
 import Sidebar from './sidebar';
 import { getLocations } from './data';
-import Search from './search';
+import SearchBox from './views/Searchbox';
+import dotenv from 'dotenv';
+dotenv.config();
+
 class App extends Component {
   state = {
     locations: [],
@@ -17,7 +20,6 @@ class App extends Component {
 
   render() {
     let { locations } = this.state;
-
     return (
       <>
         <header>
@@ -29,10 +31,10 @@ class App extends Component {
         </header>
         <div className="container">
           <Sidebar data={locations} />
-          <div className="map">
+          {/* <div className="map">
             <Map data={locations} />
-          </div>
-          <Search />
+          </div> */}
+          <SearchBox />
         </div>
       </>
     );
