@@ -12,7 +12,6 @@ const Wrapper = styled.div`
   input {
     display: inline;
     border: 0 white solid;
-    height: 100%;
     width: 80%;
     margin-left: 10px;
   }
@@ -23,7 +22,8 @@ const Wrapper = styled.div`
 
   .search-container {
     position: absolute;
-    top: 10px;
+    top: 50vh;
+    left: 50vw:
     left: calc(100% - 220px);
     width: 200px;
     border: 1px #cccccc solid;
@@ -31,10 +31,12 @@ const Wrapper = styled.div`
     padding: 10px;
     transition-property: left width;
     transition-duration: 0.75s;
+    z-index: 1;
+    background-color: white;
   }
 
   .search-container:focus-within {
-    left: calc(100% - 500px);
+    left: 0;
     width: 480px;
     transition-property: left width;
     transition-duration: 0.75s;
@@ -46,41 +48,6 @@ const Wrapper = styled.div`
 `;
 
 class SearchBox extends Component {
-  constructor(props) {
-    super(props);
-    this.clearSearchBox = this.clearSearchBox.bind(this);
-  }
-
-  componentDidMount({ map, mapApi } = this.props) {
-    console.log(this.props);
-    this.searchBox = new mapApi.places.SearchBox(this.searchInput);
-    this.searchBox.addListener('places_changed', this.onPlacesChanged);
-    this.searchBox.bindTo('bounds', map);
-  }
-
-  componentWillUnmount({ mapApi } = this.props) {
-    mapApi.event.clearInstanceListeners(this.searchInput);
-  }
-
-  onPlacesChanged = ({ map, addplace } = this.props) => {
-    const selected = this.searchBox.getPlaces();
-    const { 0: place } = selected;
-    if (!place.geometry) return;
-    if (place.geometry.viewport) {
-      map.fitBounds(place.geometry.viewport);
-    } else {
-      map.setCenter(place.geometry.location);
-      map.setZoom(17);
-    }
-
-    addplace(selected);
-    this.searchInput.blur();
-  };
-
-  clearSearchBox() {
-    this.searchInput.value = '';
-  }
-
   render() {
     return (
       <Wrapper>
@@ -91,7 +58,6 @@ class SearchBox extends Component {
               this.searchInput = ref;
             }}
             type="text"
-            onFocus={this.clearSearchBox}
             placeholder="Search"
           />
         </div>

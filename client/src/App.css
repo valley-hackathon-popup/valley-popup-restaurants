@@ -20,28 +20,12 @@ header {
   border-bottom: 1px #cccccc solid;
 }
 
-header .logo {
-  height: 50px;
-  width: 50px;
-  background-color: green;
-  margin: 10px;
-  float: left;
-}
-
 .container {
   display: grid;
   grid-template-areas: 'sidebar map';
   grid-template-columns: 60vw 40vw;
   height: calc(100vh - 70px);
   width: 100vw;
-}
-
-.title {
-  height: 70px;
-  line-height: 70px;
-  font-size: 30px;
-  color: #fe0000;
-  font-weight: bold;
 }
 
 /* .container .sidebar {

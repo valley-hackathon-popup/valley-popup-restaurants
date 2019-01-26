@@ -3,6 +3,7 @@ import isEmpty from 'lodash.isempty';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import places from './places';
+import styled from 'styled-components';
 
 // components:
 import Marker from '../components/Marker';
@@ -11,6 +12,12 @@ import RestaurantCard from '../components/RestaurantCard';
 // examples:
 import GoogleMap from '../components/GoogleMap';
 import SearchBox from '../components/SearchBox';
+
+const Wrapper = styled.div`
+  .sidebar {
+    overflow-y: scroll;
+  }
+`;
 
 const query = gql`
   {
@@ -82,41 +89,46 @@ class Explorer extends Component {
           const { allLocations: restaurants } = data;
 
           return (
-            <div className="container">
-              <GoogleMap
-                defaultZoom={12}
-                defaultCenter={[37.65, -121.025358]}
-                yesIWantToUseGoogleMapApiInternals
-                onGoogleApiLoaded={({ map, maps }) =>
-                  this.apiHasLoaded(map, maps)
-                }
-              >
-                {!isEmpty(restaurants) &&
-                  restaurants.map(restaurants => (
-                    <Marker
-                      key={restaurants.id}
-                      text={restaurants.name}
-                      lat={restaurants.latitude}
-                      lng={restaurants.longitude}
-                      name={restaurants.name}
+            <Wrapper>
+              <div className="container">
+                <GoogleMap
+                  defaultZoom={12}
+                  defaultCenter={[37.65, -121.025358]}
+                  yesIWantToUseGoogleMapApiInternals
+                  onGoogleApiLoaded={({ map, maps }) =>
+                    this.apiHasLoaded(map, maps)
+                  }
+                >
+                  {!isEmpty(restaurants) &&
+                    restaurants.map(restaurants => (
+                      <Marker
+                        key={restaurants.id}
+                        text={restaurants.name}
+                        lat={restaurants.latitude}
+                        lng={restaurants.longitude}
+                        name={restaurants.name}
+                      />
+                    ))}
+                </GoogleMap>
+                <div class="sidebar">
+                  {mapApiLoaded && (
+                    <SearchBox
+                      className="search"
+                      map={mapInstance}
+                      mapApi={mapApi}
+                      addplace={this.addPlace}
+                    />
+                  )}
+
+                  {restaurants.map(restaurant => (
+                    <RestaurantCard
+                      key={restaurant.id}
+                      restaurant={restaurant}
                     />
                   ))}
-              </GoogleMap>
-              <div>
-                {mapApiLoaded && (
-                  <SearchBox
-                    className="search"
-                    map={mapInstance}
-                    mapApi={mapApi}
-                    addplace={this.addPlace}
-                  />
-                )}
-
-                {restaurants.map(restaurant => (
-                  <RestaurantCard key={restaurant.id} restaurant={restaurant} />
-                ))}
+                </div>
               </div>
-            </div>
+            </Wrapper>
           );
         }}
       </Query>

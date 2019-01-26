@@ -8,8 +8,9 @@ const Wrapper = styled.div`
   left: 50%;
   width: 18px;
   height: 18px;
-  background-color: red;
-  border: 1px solid #000;
+  background-image: url('/logo.png');
+  background-size: cover;
+  border: 1px solid red;
   border-radius: 100%;
   user-select: none;
   transform: translate(-50%, -50%);
