@@ -1,35 +1,8 @@
 import React, { Component } from 'react';
-import isEmpty from 'lodash.isempty';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
-import styled from 'styled-components';
+import SlideFooter from './SlideFooter.js';
+import Wrapper from './SlideWrapper';
 
-const Wrapper = styled.div`
-  .img-container {
-    height: 50vh;
-    width: 100vw;
-    overflow: hidden;
-  }
-  .text-container {
-    height: 50vh;
-    width: 100vw;
-  }
-
-  h2 {
-    margin: 25px;
-    font-size: 20px;
-    line-height: 35px;
-  }
-
-  img {
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-    top: -50px;
-  }
-`;
-
-class Explorer extends Component {
+class Slide2 extends Component {
   render() {
     return (
       <Wrapper>
@@ -47,9 +20,11 @@ class Explorer extends Component {
             Doordash, which usually isn’t healthy.
           </h2>
         </div>
+
+        <SlideFooter currentSlide="2" />
       </Wrapper>
     );
   }
 }
 
-export default Explorer;
+export default Slide2;
