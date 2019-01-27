@@ -3,43 +3,58 @@ import styled from 'styled-components';
 import { FaStar as Star } from 'react-icons/fa';
 
 const Wrapper = styled.div`
-  height: 120px;
   display: flex;
+  flex-direction: column;
   border: 5px ${props => (props.active ? '#FEFB19' : '#cccccc')} solid;
   ${props => props.active && 'background-color: #ffffec;'}
   border-radius: 5px;
   margin: 15px;
+  padding: 15px;
 
   &:hover {
     border: 5px red solid;
+  }
+`;
+
+const MainContent = styled.div`
+  display: flex;
+
+  .flex {
+    display: flex;
+  }
+  .align-bottom {
+    align-items: flex-bottom;
   }
 
   .image {
     height: 120px;
     width: 120px;
     object-fit: cover;
-    padding: 15px;
-  }
-
-  .info-container > div {
     display: block;
-    padding-bottom: 10px;
+    margin-right: 25px;
   }
 
   .info-container {
-    padding: 15px;
+    flex: 1;
+    align-self: center;
+    & > div {
+      padding-bottom: 10px;
+    }
   }
 
-  .rating-container > div {
-    float: left;
-  }
-
-  .rating {
+  .rating-container {
+    display: flex;
     width: 20px;
+    justify: flex-end;
+    align-items: center;
+    & > .rating {
+      color: red;
+      margin: 5px;
+    }
   }
 
   .name {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
   }
 
@@ -51,37 +66,71 @@ const Wrapper = styled.div`
     text-align: center;
     color: white;
     background-color: red;
+    margin-right: 15px;
   }
 
-  .red {
-    color: red;
+  .expand {
+    width: 20px;
+    height: 20px;
+    &.expanded {
+      transform: rotate(180deg);
+    }
+  }
+`;
+
+const DetailContent = styled.div`
+  div {
+    margin-top: 15px;
+  }
+
+  .description {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.5em;
+  }
+
+  .gray {
+    color: gray;
   }
 `;
 
 export default function RestaurantCard({ restaurant, active, onClick }) {
   return (
     <Wrapper className="card" active={active} onClick={onClick}>
-      <img
-        className="image"
-        src={
-          restaurant.photos[0]
-            ? restaurant.photos[0].url
-            : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1280px-No_image_3x4.svg.png'
-        }
-        alt={restaurant.name}
-      />
-      <div className="info-container">
-        <div className="name">{restaurant.name}</div>
-        <div>
-          <p className="category">{restaurant.category.name}</p>
-        </div>
-        <div className="rating-container">
-          <div className="rating red">{restaurant.rating}</div>
-          <div className="red">
-            <Star />
+      <MainContent>
+        <img
+          className="image"
+          src={
+            restaurant.photos[0]
+              ? restaurant.photos[0].url
+              : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1280px-No_image_3x4.svg.png'
+          }
+          alt={restaurant.name}
+        />
+        <div className="info-container">
+          <div className="name">{restaurant.name}</div>
+          <div className="flex align-bottom">
+            <p className="category">{restaurant.category.name}</p>
+            <div className="rating-container">
+              <div className="rating">{restaurant.rating}</div>
+              <div className="rating">
+                <Star className="star" />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+
+        <img
+          src={require('../assets/expand-button.svg')}
+          className={`expand ${active && 'expanded'}`}
+        />
+      </MainContent>
+      {active && (
+        <DetailContent>
+          <div className="description">{restaurant.description}</div>
+          <div className="gray">{restaurant.address}</div>
+        </DetailContent>
+      )}
     </Wrapper>
   );
 }
