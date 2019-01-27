@@ -18,9 +18,9 @@ const Wrapper = styled.div`
 `;
 
 const query = gql`
-  query filteredLocations($cityName: String, $category: String) {
+  query filteredLocations($cityName: String, $categories: [String!]) {
     allLocations(
-      filter: { city: { name: $cityName }, category: { name: $category } }
+      filter: { city: { name: $cityName }, category: { name_in: $categories } }
     ) {
       id
       createdAt
@@ -90,7 +90,14 @@ class Explorer extends Component {
               <div className="container">
                 <GoogleMap
                   defaultZoom={12}
-                  center={[Number(city.latitude), Number(city.longitude)]}
+                  center={
+                    activeRestaurant
+                      ? [
+                          Number(activeRestaurant.latitude),
+                          Number(activeRestaurant.longitude),
+                        ]
+                      : [Number(city.latitude), Number(city.longitude)]
+                  }
                   yesIWantToUseGoogleMapApiInternals
                 >
                   {!isEmpty(restaurants) &&
