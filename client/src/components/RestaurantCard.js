@@ -19,6 +19,13 @@ const Wrapper = styled.div`
 const MainContent = styled.div`
   display: flex;
 
+  .flex {
+    display: flex;
+  }
+  .align-bottom {
+    align-items: flex-bottom;
+  }
+
   .image {
     height: 120px;
     width: 120px;
@@ -29,20 +36,25 @@ const MainContent = styled.div`
 
   .info-container {
     flex: 1;
+    align-self: center;
     & > div {
       padding-bottom: 10px;
     }
   }
+
   .rating-container {
     display: flex;
-  }
-
-  .rating {
     width: 20px;
+    justify: flex-end;
+    align-items: center;
+    & > .rating {
+      color: red;
+      margin: 5px;
+    }
   }
 
   .name {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
   }
 
@@ -54,10 +66,7 @@ const MainContent = styled.div`
     text-align: center;
     color: white;
     background-color: red;
-  }
-
-  .red {
-    color: red;
+    margin-right: 15px;
   }
 
   .expand {
@@ -74,8 +83,10 @@ const DetailContent = styled.div`
     margin-top: 15px;
   }
 
-  .b {
+  .description {
     font-weight: bold;
+    font-size: 18px;
+    line-height: 1.5em;
   }
 
   .gray {
@@ -98,13 +109,13 @@ export default function RestaurantCard({ restaurant, active, onClick }) {
         />
         <div className="info-container">
           <div className="name">{restaurant.name}</div>
-          <div>
+          <div className="flex align-bottom">
             <p className="category">{restaurant.category.name}</p>
-          </div>
-          <div className="rating-container">
-            <div className="rating red">{restaurant.rating}</div>
-            <div className="red">
-              <Star />
+            <div className="rating-container">
+              <div className="rating">{restaurant.rating}</div>
+              <div className="rating">
+                <Star className="star" />
+              </div>
             </div>
           </div>
         </div>
@@ -116,7 +127,7 @@ export default function RestaurantCard({ restaurant, active, onClick }) {
       </MainContent>
       {active && (
         <DetailContent>
-          <div className="b">{restaurant.description}</div>
+          <div className="description">{restaurant.description}</div>
           <div className="gray">{restaurant.address}</div>
         </DetailContent>
       )}
