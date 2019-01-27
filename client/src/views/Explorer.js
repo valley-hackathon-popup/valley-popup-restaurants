@@ -64,6 +64,12 @@ class Explorer extends Component {
     activeRestaurantId: null,
   };
 
+  toggleActive = restaurantId => () =>
+    this.setState({
+      activeRestaurantId:
+        restaurantId === this.state.activeRestaurantId ? null : restaurantId,
+    });
+
   render() {
     const { activeRestaurantId } = this.state;
 
@@ -96,9 +102,7 @@ class Explorer extends Component {
                         lng={restaurant.longitude}
                         name={restaurant.name}
                         active={restaurant.id === activeRestaurantId}
-                        onClick={() =>
-                          this.setState({ activeRestaurantId: restaurant.id })
-                        }
+                        onClick={this.toggleActive(restaurant.id)}
                       />
                     ))}
                 </GoogleMap>
@@ -108,9 +112,7 @@ class Explorer extends Component {
                       key={restaurant.id}
                       restaurant={restaurant}
                       active={restaurant.id === activeRestaurantId}
-                      onClick={() =>
-                        this.setState({ activeRestaurantId: restaurant.id })
-                      }
+                      onClick={this.toggleActive(restaurant.id)}
                     />
                   ))}
                 </div>
