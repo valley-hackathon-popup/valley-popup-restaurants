@@ -8,7 +8,7 @@ class Results extends Component {
     const city = _get(this, 'props.match.params.city', 'Modesto');
     return (
       <>
-        <Header />
+        <Header city={city} />
 
         <Explorer city={city} />
       </>

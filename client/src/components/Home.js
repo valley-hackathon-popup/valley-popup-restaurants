@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: ${props => `url(${props.backgroundImage})`};
+  background-image: ${(props) => `url(${props.backgroundImage})`};
   background-repeat: no-repeat;
   background-size: cover;
   filter: grayscale(20%);
@@ -62,14 +62,8 @@ class Results extends Component {
 
   componentDidMount() {
     // let last = images.length;
-    setInterval(() => {
-      this.setState(state => {
-        console.log({ state });
-        return {
-          currentImage: (state.currentImage + 1) % images.length,
-        };
-      });
-    }, 10000);
+
+    setInterval(function() {}, 2000);
   }
 
   render() {

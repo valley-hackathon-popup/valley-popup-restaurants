@@ -1,0 +1,120 @@
+@import './antd';
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.fa-pencil-alt {
+  height: 32px;
+  color: gray;
+}
+
+.hosts {
+  display: flex;
+  /* justify-content: center; */
+  margin: 30px;
+}
+
+.hosts-image {
+  object-fit: cover;
+  height: 300px;
+  width: 300px;
+}
+
+.hosts-forms {
+  padding-left: 30px;
+}
+
+.hosts-form {
+  margin-bottom: 15px;
+}
+
+.hosts-form-label {
+  font-size: 0.8em;
+  display: block;
+  color: gray;
+  // margin-bottom: 7.5px;
+}
+
+@mixin input-baseline {
+  font-size: 1.8em;
+  padding: 4px 0;
+  border: none;
+  width: auto;
+}
+
+.hosts-form-input {
+  &-hidden {
+    @include input-baseline;
+    cursor: pointer;
+
+    &:hover {
+      border-bottom: 1px dashed gray;
+    }
+  }
+  &-visible {
+    @include input-baseline;
+    border-bottom: 1px solid black;
+    // transform: translateY(-1px);
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@mixin textarea-baseline {
+  font-size: 1em;
+  padding: 4px 0;
+  border: none;
+  width: 300px;
+  resize: none;
+}
+
+.hosts-form-textarea {
+  &-hidden {
+    @include textarea-baseline;
+    cursor: pointer;
+
+    &:hover {
+      border-bottom: 1px dashed gray;
+    }
+  }
+  &-visible {
+    @include textarea-baseline;
+    border-bottom: 1px solid black;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+select {
+  margin-top: 7.5px;
+  font-size: 1.2em;
+  height: 1.5em;
+  min-width: 200px;
+  background-color: white;
+}
+
+.times-form {
+  display: flex;
+}
+
+.hosts-time-pickers {
+  display: flex;
+
+  & label {
+    margin-bottom: 2px;
+  }
+}
+
+.hosts-time-picker {
+  display: block;
+
+  &:first-of-type {
+    margin-right: 15px;
+  }
+}

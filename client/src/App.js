@@ -8,9 +8,13 @@ import Slide1 from './views/Slide1';
 import Slide2 from './views/Slide2';
 import Slide3 from './views/Slide3';
 import Slide4 from './views/Slide4';
+import Hosts from './views/Hosts';
 
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+
+import dotenv from 'dotenv';
+dotenv.config();
 
 const client = new ApolloClient({
   uri: 'https://api.graph.cool/simple/v1/cjrd2efqtc9wi01794swtqqgw',
@@ -20,6 +24,7 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
+        {/* <Header /> */}
         <Router>
           <>
             <Route exact path="/" component={Home} />
@@ -29,6 +34,7 @@ class App extends Component {
             <Route exact path="/slide2" component={Slide2} />
             <Route exact path="/slide3" component={Slide3} />
             <Route exact path="/slide4" component={Slide4} />
+            <Route exact path="/hosts/:id" component={Hosts} />
           </>
         </Router>
       </ApolloProvider>
