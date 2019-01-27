@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaStar as Star } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   display: flex;
@@ -148,6 +149,9 @@ export default class RestaurantCard extends React.Component {
           <DetailContent>
             <div className="description">{restaurant.description}</div>
             <div className="gray">{restaurant.address}</div>
+            {restaurant.id === 'cjrd55e3qabc20116oxc4l9yi' && (
+              <Link to={`/hosts/${restaurant.id}`}>Edit</Link>
+            )}
           </DetailContent>
         )}
       </Wrapper>
