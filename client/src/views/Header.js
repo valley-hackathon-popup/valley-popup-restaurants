@@ -11,6 +11,7 @@ const StyledHeader = styled.header`
 
   .logoContainer {
     text-decoration: none;
+    flex-grow: 1;
   }
 
   .menu {

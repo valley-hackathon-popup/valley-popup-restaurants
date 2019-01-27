@@ -27,6 +27,7 @@ const Wrapper = styled.div`
     margin-right: 15px;
     margin-left: 15px;
     margin-top: 15px;
+    cursor: pointer;
   }
 
   .category-off {
@@ -40,6 +41,7 @@ const Wrapper = styled.div`
     margin-right: 15px;
     margin-left: 15px;
     margin-top: 15px;
+    cursor: pointer;
   }
 `;
 
