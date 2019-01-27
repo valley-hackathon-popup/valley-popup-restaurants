@@ -60,6 +60,16 @@ const query = gql`
 `;
 
 class Explorer extends Component {
+  constructor(props) {
+    super(props);
+    this.element = React.createRef();
+  }
+
+  onRestaurantActive = offset => {
+    this.element.current.scrollTop = offset - 85;
+    console.log({ offset }, this.element.current);
+  };
+
   state = {
     activeRestaurantId: null,
   };
@@ -113,13 +123,14 @@ class Explorer extends Component {
                       />
                     ))}
                 </GoogleMap>
-                <div className="sidebar">
+                <div className="sidebar" ref={this.element}>
                   {restaurants.map(restaurant => (
                     <RestaurantCard
                       key={restaurant.id}
                       restaurant={restaurant}
                       active={restaurant.id === activeRestaurantId}
                       onClick={this.toggleActive(restaurant.id)}
+                      onActive={this.onRestaurantActive}
                     />
                   ))}
                 </div>

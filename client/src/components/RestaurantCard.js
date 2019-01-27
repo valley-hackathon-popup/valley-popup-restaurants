@@ -94,43 +94,63 @@ const DetailContent = styled.div`
   }
 `;
 
-export default function RestaurantCard({ restaurant, active, onClick }) {
-  return (
-    <Wrapper className="card" active={active} onClick={onClick}>
-      <MainContent>
-        <img
-          className="image"
-          src={
-            restaurant.photos[0]
-              ? restaurant.photos[0].url
-              : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1280px-No_image_3x4.svg.png'
-          }
-          alt={restaurant.name}
-        />
-        <div className="info-container">
-          <div className="name">{restaurant.name}</div>
-          <div className="flex align-bottom">
-            <p className="category">{restaurant.category.name}</p>
-            <div className="rating-container">
-              <div className="rating">{restaurant.rating}</div>
-              <div className="rating">
-                <Star className="star" />
+export default class RestaurantCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.element = React.createRef();
+  }
+
+  componentDidUpdate() {
+    if (this.props.active) {
+      this.props.onActive(this.element.current.offsetTop);
+    }
+  }
+
+  render() {
+    const { restaurant, active, onClick } = this.props;
+
+    return (
+      <Wrapper
+        className="card"
+        active={active}
+        onClick={onClick}
+        ref={this.element}
+      >
+        <MainContent>
+          <img
+            className="image"
+            src={
+              restaurant.photos[0]
+                ? restaurant.photos[0].url
+                : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1280px-No_image_3x4.svg.png'
+            }
+            alt={restaurant.name}
+          />
+          <div className="info-container">
+            <div className="name">{restaurant.name}</div>
+            <div className="flex align-bottom">
+              <p className="category">{restaurant.category.name}</p>
+              <div className="rating-container">
+                <div className="rating">{restaurant.rating}</div>
+                <div className="rating">
+                  <Star className="star" />
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <img
-          src={require('../assets/expand-button.svg')}
-          className={`expand ${active && 'expanded'}`}
-        />
-      </MainContent>
-      {active && (
-        <DetailContent>
-          <div className="description">{restaurant.description}</div>
-          <div className="gray">{restaurant.address}</div>
-        </DetailContent>
-      )}
-    </Wrapper>
-  );
+          <img
+            src={require('../assets/expand-button.svg')}
+            className={`expand ${active && 'expanded'}`}
+          />
+        </MainContent>
+        {active && (
+          <DetailContent>
+            <div className="description">{restaurant.description}</div>
+            <div className="gray">{restaurant.address}</div>
+          </DetailContent>
+        )}
+      </Wrapper>
+    );
+  }
 }
