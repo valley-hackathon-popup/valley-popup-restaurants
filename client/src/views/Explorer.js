@@ -43,6 +43,14 @@ const Wrapper = styled.div`
     margin-top: 15px;
     cursor: pointer;
   }
+
+  .category-container {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    padding-bottom: 15px;
+    border-bottom: solid 1px lightgray;
+  }
 `;
 
 const query = gql`
@@ -97,8 +105,7 @@ class Explorer extends Component {
   }
 
   onRestaurantActive = offset => {
-    this.element.current.scrollTop = offset - 85;
-    console.log({ offset }, this.element.current);
+    this.element.current.scrollTop = offset - 185;
   };
 
   state = {
