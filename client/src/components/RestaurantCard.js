@@ -79,18 +79,22 @@ const MainContent = styled.div`
 `;
 
 const DetailContent = styled.div`
-  div {
-    margin-top: 15px;
-  }
-
   .description {
+    margin-top: 15px;
     font-weight: bold;
     font-size: 18px;
     line-height: 1.5em;
   }
 
+  .mt {
+    margin-top: 15px;
+  }
+
   .gray {
     color: gray;
+  }
+  .b {
+    font-weight: bold;
   }
 `;
 
@@ -142,13 +146,29 @@ export default class RestaurantCard extends React.Component {
           <img
             alt="#"
             src={require('../assets/expand-button.svg')}
-            className={`expand ${active && 'expanded'}`}
+            className={`expand ${active ? 'expanded' : ''}`}
           />
         </MainContent>
         {active && (
           <DetailContent>
             <div className="description">{restaurant.description}</div>
-            <div className="gray">{restaurant.address}</div>
+            <div className="gray mt">{restaurant.address}</div>
+            <div className="gray b mt">Hours</div>
+            <div className="gray">
+              {new Date(
+                restaurant.openTimespans[0].openTime,
+              ).toLocaleTimeString('en-US', {
+                hour: 'numeric',
+                minute: 'numeric',
+              })}
+              &nbsp;&ndash;&nbsp;
+              {new Date(
+                restaurant.openTimespans[0].closeTime,
+              ).toLocaleTimeString('en-US', {
+                hour: 'numeric',
+                minute: 'numeric',
+              })}
+            </div>
             {restaurant.id === 'cjrd55e3qabc20116oxc4l9yi' && (
               <Link to={`/hosts/${restaurant.id}`}>Edit</Link>
             )}

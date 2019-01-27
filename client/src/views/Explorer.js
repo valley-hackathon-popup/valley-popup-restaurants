@@ -179,6 +179,7 @@ class Explorer extends Component {
                             className={
                               isInArray ? 'category-on' : 'category-off'
                             }
+                            key={category.name}
                             onClick={() =>
                               this.setState(state => ({
                                 categoryFilter: [
