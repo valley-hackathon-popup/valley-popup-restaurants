@@ -90,7 +90,14 @@ class Explorer extends Component {
               <div className="container">
                 <GoogleMap
                   defaultZoom={12}
-                  center={[Number(city.latitude), Number(city.longitude)]}
+                  center={
+                    activeRestaurant
+                      ? [
+                          Number(activeRestaurant.latitude),
+                          Number(activeRestaurant.longitude),
+                        ]
+                      : [Number(city.latitude), Number(city.longitude)]
+                  }
                   yesIWantToUseGoogleMapApiInternals
                 >
                   {!isEmpty(restaurants) &&
