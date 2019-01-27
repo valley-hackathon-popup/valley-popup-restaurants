@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Logo from '../views/Logo';
+import Logo from '../views/HomeLogo';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -15,9 +15,9 @@ const Wrapper = styled.div`
   filter: grayscale(20%);
 
   .logo-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
     position: relative;
-    top: 30%;
-    left: calc(50% - 220px);
     z-index: 1;
   }
 
@@ -28,19 +28,16 @@ const Wrapper = styled.div`
     width: 440px;
     height: 75px;
     font-size: 30px;
-    top: 40%;
     left: calc(50% - 220px);
     z-index: 1;
     text-align: center;
     opacity: 0.8;
+    margin-bottom: 15px;
 
     a {
-      margin: 10px;
-      padding-top: 20px;
       text-decoration: none;
       color: red;
-      padding-bottom: 10px;
-      margin-bottom: 10px;
+      line-height: 45px;
     }
     a:visited {
       text-decoration: none;
@@ -81,15 +78,17 @@ class Results extends Component {
         <div className="logo-container">
           <Logo
             textColor="#FFF"
-            logoHeight="100px"
-            logoWidth="100px"
-            fontSize="50px"
-            lineHeight="110px"
+            logoHeight="200px"
+            logoWidth="200px"
+            fontSize="75px"
+            lineHeight="75px"
           />
         </div>
 
         <div className="linkWrapper">
           <Link to="/results/Modesto">Modesto</Link>
+        </div>
+        <div className="linkWrapper">
           <Link to="/results/Turlock">Turlock</Link>
         </div>
       </Wrapper>
