@@ -15,6 +15,32 @@ const Wrapper = styled.div`
   .sidebar {
     overflow-y: scroll;
   }
+
+  .category-on {
+    border: 1px #cccccc solid;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    background-color: red;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+  }
+
+  .category-off {
+    border: 1px red solid;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+    color: red;
+    background-color: white;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+  }
 `;
 
 const query = gql`
@@ -56,12 +82,16 @@ const query = gql`
       latitude
       longitude
     }
+    allCategories(first: 10) {
+      name
+    }
   }
 `;
 
 class Explorer extends Component {
   state = {
     activeRestaurantId: null,
+    categoryFilter: [],
   };
 
   toggleActive = restaurantId => () =>
@@ -74,13 +104,19 @@ class Explorer extends Component {
     const { activeRestaurantId } = this.state;
 
     return (
-      <Query query={query} variables={{ cityName: this.props.city }}>
+      <Query
+        query={query}
+        variables={{
+          cityName: this.props.city,
+          categories: this.state.categoryFilter,
+        }}
+      >
         {({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error : {JSON.stringify(error)}</p>;
           const { allLocations: restaurants } = data;
           const city = data.allCities[0];
-
+          const categories = data.allCategories;
           const activeRestaurant = restaurants.find(
             ({ id }) => id === activeRestaurantId,
           );
@@ -114,6 +150,34 @@ class Explorer extends Component {
                     ))}
                 </GoogleMap>
                 <div className="sidebar">
+                  <div className="category-container">
+                    {!isEmpty(categories) &&
+                      categories.map(category => {
+                        const isInArray = this.state.categoryFilter.includes(
+                          category.name,
+                        );
+
+                        return (
+                          <p
+                            className={
+                              isInArray ? 'category-on' : 'category-off'
+                            }
+                            onClick={() =>
+                              this.setState(state => ({
+                                categoryFilter: [
+                                  ...state.categoryFilter.filter(
+                                    item => item !== category.name,
+                                  ),
+                                  ...(isInArray ? [] : [category.name]),
+                                ],
+                              }))
+                            }
+                          >
+                            {category.name}
+                          </p>
+                        );
+                      })}
+                  </div>
                   {restaurants.map(restaurant => (
                     <RestaurantCard
                       key={restaurant.id}
