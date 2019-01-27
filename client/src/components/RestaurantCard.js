@@ -6,8 +6,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   border: 5px ${props => (props.active ? '#FEFB19' : '#cccccc')} solid;
-  ${props => props.active && 'background-color: #ffffec;'}
-  border-radius: 5px;
+  ${props => props.active && 'background-color: #ffffec;'} border-radius: 5px;
   margin: 15px;
   padding: 15px;
 
@@ -140,6 +139,7 @@ export default class RestaurantCard extends React.Component {
           </div>
 
           <img
+            alt="#"
             src={require('../assets/expand-button.svg')}
             className={`expand ${active && 'expanded'}`}
           />

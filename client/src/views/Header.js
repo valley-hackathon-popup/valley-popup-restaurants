@@ -4,7 +4,7 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { underline } from 'ansi-colors';
+// import { underline } from 'ansi-colors';
 
 const StyledHeader = styled.header`
   display: flex;
