@@ -108,7 +108,10 @@ class Explorer extends Component {
         query={query}
         variables={{
           cityName: this.props.city,
-          categories: this.state.categoryFilter,
+          categories:
+            this.state.categoryFilter.length === 0
+              ? undefined
+              : this.state.categoryFilter,
         }}
       >
         {({ loading, error, data }) => {
