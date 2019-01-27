@@ -18,9 +18,9 @@ const Wrapper = styled.div`
 `;
 
 const query = gql`
-  query filteredLocations($cityName: String, $category: String) {
+  query filteredLocations($cityName: String, $categories: [String!]) {
     allLocations(
-      filter: { city: { name: $cityName }, category: { name: $category } }
+      filter: { city: { name: $cityName }, category: { name_in: $categories } }
     ) {
       id
       createdAt
