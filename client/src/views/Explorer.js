@@ -24,9 +24,7 @@ const Wrapper = styled.div`
     text-align: center;
     color: white;
     background-color: red;
-    margin-right: 15px;
-    margin-left: 15px;
-    margin-top: 15px;
+    margin: 10px;
     cursor: pointer;
   }
 
@@ -38,9 +36,7 @@ const Wrapper = styled.div`
     text-align: center;
     color: red;
     background-color: white;
-    margin-right: 15px;
-    margin-left: 15px;
-    margin-top: 15px;
+    margin: 10px;
     cursor: pointer;
   }
 
@@ -48,7 +44,6 @@ const Wrapper = styled.div`
     position: sticky;
     top: 0;
     background-color: #fff;
-    padding-bottom: 15px;
     border-bottom: solid 1px lightgray;
   }
 `;

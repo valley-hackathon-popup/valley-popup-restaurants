@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: ${(props) => `url(${props.backgroundImage})`};
+  background-image: ${props => `url(${props.backgroundImage})`};
   background-repeat: no-repeat;
   background-size: cover;
   filter: grayscale(20%);
