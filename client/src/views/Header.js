@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { underline } from 'ansi-colors';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -28,9 +29,11 @@ const StyledHeader = styled.header`
     a:visited {
       text-decoration: none;
     }
-    a:hover {
+    a:hover,
+    .underlined {
       border-bottom: 1px red solid;
     }
+
     padding: 15px;
   }
 `;
@@ -61,7 +64,11 @@ class Header extends Component {
 
               <div className="menu">
                 {allCities.map(city => (
-                  <Link to={`/results/${city.name}`} key={city.name}>
+                  <Link
+                    className={city.name === this.props.city && 'underlined'}
+                    to={`/results/${city.name}`}
+                    key={city.name}
+                  >
                     {city.name}
                   </Link>
                 ))}
