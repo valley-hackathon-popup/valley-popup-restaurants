@@ -65,7 +65,9 @@ class Header extends Component {
               <div className="menu">
                 {allCities.map(city => (
                   <Link
-                    className={city.name === this.props.city && 'underlined'}
+                    className={
+                      city.name === this.props.city ? 'underlined' : ''
+                    }
                     to={`/results/${city.name}`}
                     key={city.name}
                   >
