@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 
 const StyledHeader = styled.header`
   display: flex;
+  justify-content: space-between;
 
   .logoContainer {
-    flex-grow: 3;
     text-decoration: none;
   }
 
